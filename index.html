@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeviceGuard</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1220;color:#edf4ff;font-family:Arial,sans-serif}
+header{background:#14213a;padding:22px 18px;border-bottom:1px solid #2b3d5d}
+header h1{margin:0;color:#55e6b0}
+header p{color:#bac8dd;margin-bottom:0}
+main{padding:18px;max-width:800px;margin:auto}
+.card{background:#14213a;border:1px solid #2b3d5d;border-radius:14px;padding:17px;margin:14px 0}
+h2{font-size:19px;margin-top:0}
+button{background:#18b887;color:#071a17;border:0;border-radius:8px;padding:12px;font-weight:bold;cursor:pointer}
+button:focus{outline:2px solid white}
+.result{color:#55e6b0;line-height:1.6}
+small{color:#bac8dd}
+</style>
+</head>
+<body>
+<header>
+<h1>🛡️ DeviceGuard</h1>
+<p>Your personal device safety learning center</p>
+</header>
+<main>
+<div class="card">
+<h2>📱 Device Safety</h2>
+<p>Learn how to protect your phone and personal information.</p>
+<button onclick="showTips()">Show safety tips</button>
+<p id="tips" class="result" aria-live="polite"></p>
+</div>
+<div class="card">
+<h2>📡 Wi-Fi Security</h2>
+<p>Learn to recognize common network risks.</p>
+<button onclick="showWifi()">Check learning guide</button>
+<p id="wifi" class="result" aria-live="polite"></p>
+</div>
+<div class="card">
+<h2>📍 Lost Device Guide</h2>
+<p>Use official tools to locate your own lost Android phone.</p>
+<button onclick="openFind()">Open Google's Find Hub</button>
+<p><small>Sign in with the Google account on your device. Location may not be available if the phone is offline or settings are disabled.</small></p>
+</div>
+<div class="card">
+<h2>🔐 Cybersecurity Quiz</h2>
+<p id="question">What should you do if a stranger asks for your password?</p>
+<button onclick="answer(false)">Share it</button>
+<button onclick="answer(true)">Keep it private</button>
+<p id="quiz" class="result" aria-live="polite"></p>
+</div>
+<footer><small>DeviceGuard • Educational project • No device is scanned or tracked by this demo.</small></footer>
+</main>
+<script>
+function showTips(){
+document.getElementById('tips').textContent=
+'1. Use a strong screen lock. 2. Install updates. 3. Avoid unknown APK files. 4. Never share verification codes. 5. Back up important data.';
+}
+function showWifi(){
+document.getElementById('wifi').textContent=
+'Use WPA2-AES or WPA3 on your own router. Change default admin passwords. Avoid entering sensitive information on untrusted public Wi-Fi.';
+}
+function openFind(){
+window.open('https://android.com/find','_blank','noopener');
+}
+function answer(correct){
+document.getElementById('quiz').textContent=correct?
+'Correct! Keep passwords private and use two-step verification.':
+'Not quite. Never share your password. Try again!';
+}
+</script>
+</body>
+</html>
